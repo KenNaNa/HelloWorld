@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title></title>
+	<link rel="stylesheet" href="">
+	<script src="jquery-1.12.4.js"></script>
+</head>
+<body>
+<form>
+    <input id="file" name="file" type="file" />
+    <input id="token" name="token" type="hidden" />
+</form>	
+<script>
+	/**
+	 * Ajax无刷新上传的方式，本质上与表单上传无异，只是把表单里的内容提出来采用ajax提交，并且由前端决定请求结果回传后的展示结果，不用像直接表单上传那样刷新和跳转页面。在这里，我们采用jQuery来作为操作DOM和创建ajax提交的js基础库。
+	 */
+	
+	 $('#file').on('change',function(e){
+	 	var formData = new FormData();
+
+	 	formData.append('file',$('#file')[0].files);
+	 	formData.append('token',$('#token').val());
+
+	 	$.ajax({
+	 		url:'http://uploadUrl',
+	 		type:'POST',
+	 		data:formData,
+	 		processData:false,
+	 		cententType:false,
+	 		success:function(res){
+	 			console.log(res)
+	 		},
+	 		error:function(e){
+	 			throw e;
+	 		}
+	 	})
+	 })
+
+	 /**
+	  * 我们使用了file控件的change来触发上传事件，当然你也可以使用某个按钮来触发表单提交。提交数据时，我 用到了FormData对象来发送二进制文件，FormData构造函数提供的append()方法，除了直接添加二进制文件还可以附带一些其它的参数， 作为XMLHttpRequest实例的参数提交给服务端。
+
+使用jQuery提供的ajax方法来发送二进制文件，还需要附加两个参数：
+
+processData: false // 不要对data参数进行序列化处理，默认为true
+contentType: false // 不要设置Content-Type请求头，因为文件数据是以 multipart/form-data 来编码
+	  */
+</script>
+</body>
+</html>

@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title></title>
+	<link rel="stylesheet" href="">
+	<style>
+		#textarea{
+			width: 100px;
+			height: 200px;
+			border: 2px dashed #ddd;
+			color: #999;
+			text-align: center;
+			line-height: 200px;
+		}
+	</style>
+</head>
+<body>
+<div id="textarea">
+	拖拽文件到此处
+</div>
+<script>
+	/**
+	 * 拖拽上传的方式，支持的浏览器比较少，因为它用到了HTML5的两个新的属性（API）一个是Drag and Drop,一个是File API。
+
+上传域监听拖拽的三个事件：dragEnter、dragOver和drop，分别对应拖拽至、拖拽时和释放三个操作的处理机制，当然你也可以监听dragLeave事件。
+
+HTML5的File API提供了一个FileList的接口，它可以通过拖拽事件的e.dataTransfer.files来传递的文件信息，获取本地文件列表信息。
+
+File API在HTML5规范中只是草案，在 W3C 草案中，File 对象只包含文件名、文件类型和文件大小等只读属性。但部分浏览器在草案之外提供了一个名为 FileReader 的对象，用以读取文件内容，并且可以监控读取状态，它提供的方法有： “readAsBinaryString” ，”readAsDataURL” ，”readAsText” ，”abort” 等。
+	 */
+
+// dragenter
+$("#textarea").on("dragenter", function(e){
+    e.preventDefault();
+});
+// dragover
+$("#textarea").on("dragover", function(e){
+    e.preventDefault();
+});
+// drop
+$("#textarea").on("drop", function(e){
+    e.stopPropagation();
+    e.preventDefault();
+    var files = e.originalEvent.dataTransfer.files;
+    _.each(files, function(file) {
+        if (!/^image*/.test(file.type)) {
+          return;
+        }
+        var fileReader = new FileReader();
+        fileReader.onload = function() {
+          //uploadFile(file);
+        };
+        fileReader.readAsDataURL(file);
+    });
+});
+/**
+ * 在drop事件触发后通过e.dataTransfer.files获取拖拽文件列表，在jQuery中是e.originalEvent.dataTransfer.files
+拖拽上传仅支持图片，文件对象中file.type标识了文件类型。
+由于可能是多图拖拽，所以可以遍历图片上传，这里用了Underscore的each方法。
+这里用readAsDataURL读取文件内容为二进制文件，你还可以将其转换为Base64方式上传，只是http协议里面存在对非二进制数据的上传大小限制为2M。
+上传的过程跟前面的方式相同，即：创建FormData对象并发起Ajax请求。
+ */
+</script>	
+</body>
+</html>
