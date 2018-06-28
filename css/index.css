@@ -1,0 +1,629 @@
+body {
+  min-width: 1470px;
+}
+body {
+  background: #fff;
+  color: #000;
+  font-size: 14px;
+  font-family: 'Microsoft yahei', Verdana, Arial, Helvetica, sans-serif;
+}
+.w {
+  width: 100%;
+}
+.h {
+  height: 100%;
+}
+.inlineblock {
+  display: inline-block;
+}
+.opa-block {
+  display: none;
+  opacity: 0;
+}
+.transition {
+  transition: 0.5s;
+}
+.absolute {
+  position: absolute;
+}
+.no-repeat {
+  background-repeat: no-repeat;
+}
+#header {
+  position: relative;
+  width: 100%;
+  height: 628px;
+  background: url("../img/index/main_banner.jpg") top center;
+}
+#nav {
+  position: relative;
+  width: 100%;
+  height: 100px;
+  transition: .3s;
+  z-index: 3;
+}
+#nav.hover {
+  background: rgba(255, 255, 255, 0.8);
+}
+#nav.scroll {
+  background: rgba(255, 255, 255, 0.8);
+}
+#nav ul.mainList {
+  float: right;
+  margin-right: 40px;
+  margin-top: 40px;
+  width: 700px;
+  height: 25px;
+  position: relative;
+}
+#nav ul.mainList > li {
+  float: left;
+}
+#nav ul.mainList li.mNav {
+  font-size: 16px;
+  line-height: 25px;
+}
+#nav ul.mainList li.mNav a {
+  display: block;
+  color: #000;
+  transition: .3s;
+  padding: 0 20px 35px;
+}
+#nav ul.mainList li.mNav.hover a {
+  color: #cc4336;
+}
+/**/
+#nav ul.mainList li.line {
+  width: 15px;
+  height: 25px;
+  background: url("../img/index/index.png") 16px 116px;
+}
+#nav .ulHide {
+  display: none;
+  position: absolute;
+  left: 0;
+  top: 100px;
+  width: 100%;
+  height: 200px;
+  background: #e1ebeb;
+  z-index: 10;
+}
+#nav .ulHide .hide {
+  display: none;
+  width: 100%;
+  height: 100%;
+}
+#nav .mNav .arrow {
+  display: none;
+  width: 0;
+  height: 0;
+  margin: -20px 0px 0px 35px;
+  border: 10px solid #e1ebeb;
+  border-top-color: transparent;
+  border-left-color: transparent;
+  border-right-color: transparent;
+}
+#nav ul.mainList li.mNav.hover .arrow {
+  display: block;
+}
+#nav .hideList li {
+  float: right;
+}
+#nav .hideList li.mHideLi {
+  position: relative;
+  top: 40px;
+  width: 215px;
+  height: 150px;
+  transition: .5s;
+}
+#nav .hideList li.border {
+  width: 1px;
+  height: 105px;
+  background: #ccc;
+  margin-top: 40px;
+}
+#nav .hideList li.mHideLi i {
+  display: block;
+  margin: 0 auto;
+  background-image: url("../img/index/index.png");
+}
+#nav .hideList li.mHideLi p {
+  text-align: center;
+  line-height: 35px;
+  font-size: 16px;
+  margin-top: 10px;
+  color: #000;
+}
+#nav .hideList li.mHideLi i.i1 {
+  width: 65px;
+  height: 71px;
+  background-position: 158px -230px;
+}
+#nav .hideList li.mHideLi i.i2 {
+  width: 71px;
+  height: 70px;
+  background-position: 158px -301px;
+}
+#nav .hideList li.mHideLi:hover {
+  top: 20px;
+}
+#nav .logo {
+  display: none;
+  opacity: 1;
+  float: left;
+  width: 380px;
+  height: 100px;
+}
+#nav .logo .qrcode {
+  float: left;
+  width: 123px;
+  height: 100px;
+}
+#nav .logo .qrcode p {
+  float: left;
+  width: 14px;
+  height: 76px;
+  margin: 10px 12px;
+}
+#nav .logo .qrcode img {
+  float: left;
+  display: block;
+  width: 73px;
+  height: 73px;
+  margin: 12px 0;
+}
+#nav .logo .mLogo {
+  float: left;
+  height: 73px;
+  width: 246px;
+  margin-top: 13px;
+  border-left: 1px solid #999;
+}
+#nav .logo .mLogo .img {
+  float: left;
+}
+#nav .logo .mLogo .img img {
+  display: block;
+  width: 72px;
+  height: 72px;
+  border: 1px solid #fff;
+  border-radius: 20px;
+  margin: 0 12px;
+}
+#nav .logo .mLogo .p1 {
+  font-weight: bold;
+  font-size: 30px;
+}
+#nav .logo .mLogo .p2 {
+  font-size: 16px;
+  margin-top: 10px;
+}
+#logo2 {
+  position: absolute;
+  opacity: 0;
+  top: 40px;
+  left: -70px;
+  background-image: url('../img/index/logo.png');
+  width: 70px;
+  height: 199px;
+  transform: scale(1);
+  transition: transform 0.3s,opacity 1s,left 1s;
+}
+#role {
+  position: relative;
+  width: 1105px;
+  height: 584px;
+  margin: 0 auto;
+  z-index: 1;
+}
+#role .role_botbg {
+  position: absolute;
+  display: block;
+  width: 805px;
+  height: 23px;
+  bottom: 1px;
+  z-index: 5;
+}
+#role .role {
+  position: absolute;
+  bottom: 2px;
+  opacity: 1;
+  transition: 1s;
+}
+#role .rol1 .role1 {
+  width: 437px;
+  height: 537px;
+  background-image: url('../img/index/role/role1.png');
+  left: 20px;
+  opacity: 1;
+}
+#role .rol1 .role2 {
+  width: 423px;
+  height: 544px;
+  background-image: url('../img/index/role/role2.png');
+  left: 345px;
+  z-index: 1;
+  opacity: 1;
+}
+#role .rol1 .role1.hide,
+#role .rol1 .role2.hide {
+  left: 150px;
+  opacity: 0;
+}
+#role .rol2 .role3 {
+  display: block;
+  width: 491px;
+  height: 583px;
+  background-image: url('../img/index/role/role3.png');
+  left: 0px;
+  z-index: 1;
+  opacity: 1;
+}
+#role .rol2 .role4 {
+  display: block;
+  width: 503px;
+  height: 501px;
+  background-image: url('../img/index/role/role4.png');
+  left: 234px;
+  opacity: 1;
+}
+#role .rol2 .role3.hide,
+#role .rol2 .role4.hide {
+  left: 170px;
+  opacity: 0;
+}
+#role p.btn {
+  position: absolute;
+  top: 270px;
+  right: 250px;
+  width: 41px;
+  height: 66px;
+  background: url(../img/index/index.png) 158px -439px;
+  cursor: pointer;
+  transform: scale(1);
+  transition: .5s;
+}
+#role p.btn:hover {
+  transform: scale(1.2);
+}
+#server {
+  position: absolute;
+  bottom: 0px;
+  left: 0px;
+  width: 90px;
+  height: 105px;
+  z-index: 5;
+}
+#server img {
+  width: 100%;
+  height: 100%;
+}
+#slide {
+  position: absolute;
+  top: 500px;
+  right: -130px;
+  z-index: 1;
+  width: 504px;
+  height: 1100px;
+  background: url('../img/index/side_bg.png');
+}
+#slide .title {
+  position: absolute;
+  top: -20px;
+  left: 30px;
+  width: 312px;
+  height: 170px;
+  background: url(../img/index/index.png) -587px -853px;
+}
+#slide .arrow {
+  position: absolute;
+  top: 63px;
+  left: 0px;
+  width: 0;
+  height: 0;
+  border: 5px solid #fccc00;
+  border-top-color: transparent;
+  border-right-color: transparent;
+  border-bottom-color: transparent;
+}
+#slide .download {
+  overflow: hidden;
+  position: absolute;
+  top: 43px;
+  right: 504px;
+  padding: 5px;
+  width: 23px;
+  height: 106px;
+  border-radius: 10px 0 0 10px;
+  background-color: #fccc00;
+  border: 5px solid #fdde00;
+  border-right: none;
+  transition: width .5s;
+}
+#slide .download.stretch {
+  width: 380px;
+}
+#slide .download .shrink {
+  display: none;
+  width: 23px;
+  height: 111px;
+  background-image: url(../img/index/index.png);
+  background-position: 231px -613px;
+  cursor: pointer;
+}
+#slide .download .downloadMain {
+  display: block;
+  width: 380px;
+  height: 100%;
+}
+#slide .downloadMain .close {
+  float: left;
+  width: 22px;
+  height: 22px;
+  background: url("../img/index/index.png") 106px -621px;
+  cursor: pointer;
+}
+#slide .downloadMain .bg1 {
+  float: left;
+  width: 43px;
+  height: 100%;
+  background: url(../img/index/index.png) 207px -615px;
+  margin-left: 10px;
+}
+#slide .downloadMain .qrcode {
+  position: relative;
+  float: left;
+  width: 100px;
+  height: 100px;
+  margin-left: 10px;
+  padding: 4px;
+  border-radius: 5px;
+  background: #fff;
+}
+#slide .downloadMain .qrcode .qr {
+  display: block;
+  width: 100px;
+  height: 100px;
+}
+#slide .downloadMain .qrcode .line {
+  position: absolute;
+  left: 1px;
+  top: 4px;
+  animation: lineMove 2s linear infinite;
+}
+#slide .downloadMain .downLink {
+  float: left;
+  width: 171px;
+  margin-left: 10px;
+}
+#slide .downloadMain .downLink a {
+  display: block;
+  width: 100%;
+  height: 51px;
+  background-image: url("../img/index/index.png");
+  border-radius: 3px;
+}
+#slide .downloadMain .downLink a.android {
+  background-position: -651px 80px;
+  margin-top: 7px;
+}
+#slide .downloadMain .downLink a.ios {
+  background-position: -759px -608px;
+}
+#slide .downloadMain .downLink a.ios:hover {
+  background-position: -480px 80px;
+}
+#slide .downloadMain .downLink a.android:hover {
+  background-position: -907px -959px;
+}
+#slide .main {
+  position: relative;
+  margin-top: 145px;
+}
+#slide .main li.mainLi {
+  overflow: hidden;
+  position: absolute;
+  width: 321px;
+  height: 98px;
+  margin-top: 5px;
+  background-image: url("../img/index/index.png");
+  cursor: pointer;
+  transition: height .5s,left .5s,right .5s;
+}
+#slide .main li.left {
+  left: 27px;
+}
+#slide .main li.right {
+  right: 187px;
+}
+#slide .main li.l1 {
+  width: 314px;
+  background-position: -661px -1045px;
+  top: 0;
+}
+#slide .main li.l2 {
+  height: 88px;
+  background-position: -618px 256px;
+  top: 102px;
+  z-index: 1;
+}
+#slide .main li.l3 {
+  width: 306px;
+  height: 93px;
+  background-position: -307px 257px;
+  top: 191px;
+}
+#slide .main li.l4 {
+  width: 293px;
+  height: 97px;
+  background-position: -302px 362px;
+  top: 285px;
+}
+#slide .main li.l5 {
+  width: 314px;
+  height: 100px;
+  background-position: -330px 503px;
+  top: 386px;
+  z-index: 1;
+}
+#slide .main li.l6 {
+  width: 304px;
+  height: 97px;
+  background-position: -4px 259px;
+  top: 468px;
+}
+#slide .main li.l7 {
+  width: 309px;
+  height: 103px;
+  background-position: 478px 669px;
+  top: 555px;
+}
+#slide .main li.l8 {
+  width: 305px;
+  height: 94px;
+  background-position: 645px 360px;
+  top: 653px;
+}
+#slide .main li.l9 {
+  width: 304px;
+  height: 97px;
+  background-position: -595px 363px;
+  top: 740px;
+}
+#slide .main li.left:hover {
+  left: 40px;
+}
+#slide .main li.right:hover {
+  right: 177px;
+}
+#slide .main li.pos {
+  z-index: 2;
+}
+#slide .main li.l1:hover {
+  height: 205px;
+}
+#slide .main li.l1.pos {
+  background-position: -759px -5px;
+}
+#slide .main li.l2:hover {
+  height: 340px;
+}
+#slide .main li.l2.pos {
+  background-position: -310px -2px;
+}
+#slide .main li.l3:hover {
+  height: 185px;
+}
+#slide .main li.l3.pos {
+  background-position: -620px -668px;
+  z-index: 2;
+}
+#slide .main li.l4:hover {
+  height: 185px;
+}
+#slide .main li.l4.pos {
+  background-position: -327px -668px;
+  z-index: 2;
+}
+#slide .main li.l5:hover {
+  height: 285px;
+}
+#slide .main li.l5.pos {
+  background-position: 0px -380px;
+  z-index: 2;
+}
+#slide .main li.l6:hover {
+  height: 350px;
+}
+#slide .main li.l6.pos {
+  background-position: -4px 0px;
+  z-index: 2;
+}
+#slide .main li.left div.show {
+  position: absolute;
+  top: 48px;
+  left: 25px;
+  width: 190px;
+  height: 30px;
+  font-size: 13px;
+  line-height: 15px;
+}
+#slide .main li.left div.hide,
+#slide .main li.right div.hide {
+  position: absolute;
+  top: 110px;
+  left: 25px;
+  width: 190px;
+  height: 30px;
+  font-size: 13px;
+  line-height: 15px;
+}
+#slide .main li.right div.hide {
+  left: 70px;
+}
+#slide .main li.right div.show {
+  position: absolute;
+  top: 40px;
+  left: 80px;
+}
+#slide .main li.l2.right div.show,
+#slide .main li.l4.right div.show,
+#slide .main li.l6.right div.show {
+  left: 152px ;
+  top: 50px;
+}
+/*css3动画*/
+@keyframes lineMove {
+  from {
+    top: 4px;
+  }
+  to {
+    top: 100px;
+  }
+}
+#slide .downloadMain .bg1 {
+  float: left;
+  width: 43px;
+  height: 100%;
+  background: url(../img/index/index.png) 207px -615px;
+  margin-left: 10px;
+}
+/*# sourceMappingURL=index.css.map */
+/*# sourceMappingURL=index.css.map */
+/*# sourceMappingURL=index.css.map */
+/*# sourceMappingURL=index.css.map */
+/*# sourceMappingURL=index.css.map */
+/*# sourceMappingURL=index.css.map */
+/*# sourceMappingURL=index.css.map */
+/*# sourceMappingURL=index.css.map */
+/*# sourceMappingURL=index.css.map */
+/*# sourceMappingURL=index.css.map */
+/*# sourceMappingURL=index.css.map */
+/*# sourceMappingURL=index.css.map */
+/*# sourceMappingURL=index.css.map */
+/*# sourceMappingURL=index.css.map */
+/*# sourceMappingURL=index.css.map */
+/*# sourceMappingURL=index.css.map */
+/*# sourceMappingURL=index.css.map */
+/*# sourceMappingURL=index.css.map */
+/*# sourceMappingURL=index.css.map */
+/*# sourceMappingURL=index.css.map */
+/*# sourceMappingURL=index.css.map */
+/*# sourceMappingURL=index.css.map */
+/*# sourceMappingURL=index.css.map */
+/*# sourceMappingURL=index.css.map */
+/*# sourceMappingURL=index.css.map */
+/*# sourceMappingURL=index.css.map */
+/*# sourceMappingURL=index.css.map */
+/*# sourceMappingURL=index.css.map */
+/*# sourceMappingURL=index.css.map */
+/*# sourceMappingURL=index.css.map */
+/*# sourceMappingURL=index.css.map */
+/*# sourceMappingURL=index.css.map */
+/*# sourceMappingURL=index.css.map */
+/*# sourceMappingURL=index.css.map */
+/*# sourceMappingURL=index.css.map */
+/*# sourceMappingURL=index.css.map */
+/*# sourceMappingURL=index.css.map */
+/*# sourceMappingURL=index.css.map */
+/*# sourceMappingURL=index.css.map */
