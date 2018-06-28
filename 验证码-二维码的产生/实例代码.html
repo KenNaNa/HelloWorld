@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title></title>
+	<link rel="stylesheet" href="">
+	<script src="jquery.js"></script>
+	<script src="qrcode.js"></script>
+	<style>
+		#qrcode {
+			width:160px;
+		  	height:160px;
+		  	margin-top:15px;
+		}
+	</style>
+</head>
+<body>
+<input id="text" type="text" value="http://www.runoob.com" /><br />
+<div id="qrcode"></div>
+
+<script>
+var qrcode = new QRCode("qrcode");
+
+function makeCode () {      
+    var elText = document.getElementById("text");
+    
+    if (!elText.value) {
+        alert("Input a text");
+        elText.focus();
+        return;
+    }
+    
+    qrcode.makeCode(elText.value);
+}
+
+makeCode();
+
+$("#text").
+on("blur", function () {
+    makeCode();
+}).
+on("keydown", function (e) {
+    if (e.keyCode == 13) {
+        makeCode();
+    }
+});
+</script>	
+</body>
+</html>

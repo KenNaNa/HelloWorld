@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title></title>
+	<link rel="stylesheet" href="">
+</head>
+<body>
+<canvas id="myCanvas" width="70px" height="27px" style="float: left; border:1px solid #d3d3d3;"></canvas>
+<script>
+	
+	var mc = document.getElementById('myCanvas');
+	createCode();//一开始要初始化一次
+	mc.onclick = function(){
+		createCode()
+	}
+
+	// 第一就是创建画布，
+	// 第二获取验证码，
+	// 第三将验证码画到画布上
+	function createCode(){
+		//1 首先创建码组
+		// 声明一个变量
+		var code = '';//储存码
+
+		var codeLength = 4;//码的长度
+
+		// 生成数字和大写字母的数组
+		var codeArr = [0,1,2,3,4,5,6,7,8,9,'A','B','C','D','E','F','G','H','I','J','K','L','M','N','O','P','Q','R','S','T','U','V','W','X','Y','Z'];
+
+		// 数组长度
+		var codeArrLength = codeArr.length;
+		
+		// 循环四次
+		for(var i=0;i<codeLength;i++){
+			// 随机生成从0到36之间的整数
+			var codeArrIndex = Math.floor(Math.random()*36);
+			// 组成code
+			code += codeArr[codeArrIndex];
+		}
+
+		//2 绘制画布
+		if(mc){
+			// 获取画布
+			var TD = mc.getContext('2d');
+			// 设置画笔的色彩
+			TD.fillStyle = 'gray';
+			// 绘制矩形
+			TD.fillRect(0,0,70,27);
+			// 设置字体颜色
+			TD.font = '20px arial';
+
+			// 创建渐变色彩
+			var gradient = TD.createLinearGradient(0,0,mc.width,0);
+			// 添加颜色
+			gradient.addColorStop(0,'magenta');
+			gradient.addColorStop(0.5,'blue');
+			gradient.addColorStop(1,'red');
+
+
+			// 渐变填充
+			TD.strokeStyle = gradient;
+			TD.strokeText(code,7,20);
+		}
+
+	}
+</script>	
+</body>
+</html>
