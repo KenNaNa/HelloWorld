@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title></title>
+	<link rel="stylesheet" href="">
+</head>
+<body>
+<div id="file_upload"></div>
+<script>
+	/**
+	 * 很 多时候上传的需求要求显示上传进度、中断上传过程、大文件分片上传等等，这时传统的表单上传很难实现这些功能，于是产生了使用Flash上传的方式，它采 用Flash作为一个中间代理层，代替客户端跟服务端通信，此外，它也对客户端的文件选择方面拥有更多的控制权，比input[type=”file”] 要大得多。
+	 */
+	
+	/**
+	 * 在这里我使用了jQuery封装好的uploadify插件来进行演示，一般这类插件都自带了上传用的Flash文件，因为跟服务端回传的数据和展示跟客户端的交互，都是Flash文件的接口跟插件来对接的。
+
+<div id="file_upload"></div>
+html部分很简单，预留一个hook后，插件会在这个节点内部创建Flash的object，并且还附带创建了上传进度、取消控件和多文件队列展示等界面。
+	 */
+	$(function(){
+		$('#file_upload').uploadify({
+			auto:true,
+			method:'POST',
+			width:120,
+			height:30,
+			swf:'./uploadify.swf',
+			uploader:'http://uploadUrl',
+			formData:{
+				token:$('#token').val();
+			},
+			fileObjName:'file',
+			onuploadSuccess:function(file,data,res){
+				
+			}
+		})
+	})
+</script>	
+</body>
+</html>
