@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title></title>
+	<link rel="stylesheet" href="">
+	<script src="jquery-1.12.4.js"></script>
+</head>
+<body>
+<canvas id='canvas' width=400  height="400">
+	您的浏览器不支持canvas标签
+</canvas>
+<script>
+	function $1(id){
+		return document.getElementById(id);
+	}
+	// 获取元素
+	var $canvas = $('#canvas');
+	
+	// 获取画布
+	var cvs = $1('canvas');
+	// 获取画笔
+	var cxt = cvs.getContext('2d');	
+
+	//获取画布的宽高
+	var w = $canvas.width();
+	var h = $canvas.height();
+	console.log(w,h)
+
+	// 首先我们要创建一个对象ball
+	var ball = {
+		x:100,
+		y:100,
+		xSpeed:-2,
+		ySpeed:-2
+	};
+
+	// 定义一个绘制小球的方法以及运动的方法
+	ball.draw = function(){
+		cxt.beginPath();
+		cxt.fillStyle = 'blue';
+		cxt.arc(this.x,this.y,0,Math.PI*2,false);
+		cxt.fill();
+	}
+
+	ball.move = function(){
+		this.x = this.x + this.xSpeed;
+		this.y = this.x + this.ySpeed;
+	}
+
+	// 定时功能
+	setInterval(function(){
+		console.log(1)
+		cxt.clearRect(0,0,w,h);
+		// 绘画之前要先清除画布；
+		ball.draw();
+		ball.move();
+
+		cxt.strokeRect(0,0,w,h);
+	},1000)
+
+</script>	
+</body>
+</html>

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title>
+		
+	</title>
+	<link rel="stylesheet" href="">
+	<script src="quintus-all.js"></script>
+</head>
+<body>
+<script>
+	var Q = Quintus()
+			.include("Sprites, Scenes, Input, 2D")
+			.setup({width:1000, height:600});
+
+	/**
+	 * 这些指南通常会使用该变量Q来引用引擎的一个实例。
+	 * 您可以在单个页面上创建引擎的多个实例，但请注意，
+	 * 每个实例与其他实例完全独立，并且不会以任何方式与对方进行交互。
+	 */
+	// 打开开发模式
+	var Q = Quintus({development:true});
+
+	// 包括模块
+	Quintus.include([
+		Quintus.Sprites,
+		Quintus.Scenes,
+		Quintus.Input
+	]);
+
+	// 创建你自己的模块
+	Quintus.Random = function(Q){
+		Q.random = function(min,max){
+			return min + Math.random(max - min);
+		}
+	}
+</script>	
+</body>
+</html>
