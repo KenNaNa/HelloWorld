@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title></title>
+	<link rel="stylesheet" href="">
+	<script src="jquery.js"></script>
+	<script src="qrcode.js"></script>
+</head>
+<body>
+<div id="qrcode"></div>
+<script>
+	var qrcode = document.getElementById('qrcode');
+
+	new QRCode(qrcode,"http://www.baidu.com");
+</script>	
+</body>
+</html>
