@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title></title>
+	<link rel="stylesheet" href="">
+	<style type="text/css">
+		#container{
+			width: 100%;
+			height: 200px;
+			background-color: #444;
+			text-align: center;
+			font-size: 30px;
+			line-height: 200px;
+		}
+	</style>
+</head>
+<body>
+<div id="container">
+	
+</div>
+
+<script type="text/javascript">
+	var count = 1;
+	var oDiv = document.getElementById('container');
+	oDiv.onmousemove = function(e){
+		console.log(e);
+		count++;
+		this.innerHTML = count;
+	}
+</script>	
+</body>
+</html>

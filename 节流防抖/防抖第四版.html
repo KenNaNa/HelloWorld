@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title></title>
+	<link rel="stylesheet" href="">
+	<style type="text/css">
+		#container{
+			width: 100%;
+			height: 200px;
+			background-color: #444;
+			text-align: center;
+			font-size: 30px;
+			line-height: 200px;
+		}
+	</style>
+</head>
+<body>
+<div id="container">
+	
+</div>	
+<script type="text/javascript">
+	function getEl(id){
+		return document.getElementById(id);
+	}
+	var count = 0;
+	var oDiv = getEl('container');
+	function move(e){
+		count++;
+		oDiv.innerHTML = count;
+	}
+	// 封装一个节流函数
+	// @param  func  回调函数
+	// @param  wait  延时
+	// @param  immediate 是否立即执行
+	function debounce(func, wait, immediate){
+		var timeout;
+		return function(){
+			var context = this;
+			var args = arguments
+			if(timeout){
+				clearTimeout(timeout);
+			}
+			if(immediate){
+				// 如果执行过了，就不再执行
+				// 等待几秒过后再触发
+				var callNow = !timeout;
+				console.log(callNow)
+				// console.log(timeout);
+				timeout = setTimeout(function(){
+					// timeout = null;
+					// func.apply(context, args);//这样的话跟上一届就没啥区别了
+					// 把定时器清掉
+					timeout = null;
+					console.log(timeout)
+				}, wait)
+				// 是否立即执行
+				if(callNow){
+					// 在一段时间内，连续滑动的时候
+					// 只让下面这个函数执行一遍
+					func.apply(context, args);
+				}
+			}else{
+				// 这一步其实就永远不会执行了
+				console.log(1)
+				timeout = setTimeout(function(){
+					func.apply(context, args);
+				},wait);
+			}
+			
+		}
+
+	}
+	oDiv.onmousemove = debounce(move,1000, true)
+</script>
+</body>
+</html>
