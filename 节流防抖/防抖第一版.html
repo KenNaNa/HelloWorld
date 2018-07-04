@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title></title>
+	<link rel="stylesheet" href="">
+	<style type="text/css">
+		#container{
+			width: 100%;
+			height: 200px;
+			background-color: #444;
+			text-align: center;
+			font-size: 30px;
+			line-height: 200px;
+		}
+	</style>
+</head>
+<body>
+<div id="container">
+	
+</div>	
+<script type="text/javascript">
+	function getEl(id){
+		return document.getElementById(id);
+	}
+	var count = 0;
+	var oDiv = getEl('container');
+	function move(){
+		count++;
+		// this.innerHTML = count;
+		oDiv.innerHTML = count;
+		console.log(this);
+	}
+	// 封装一个节流函数
+	// @param  func  回调函数
+	// @param  wait  延时
+	function debounce(func, wait){
+		var timeout;
+		return function(){
+			// 判断定时器是否存在
+			// 如果存在清除
+			if(timeout){
+				clearTimeout(timeout);
+			}
+			timeout = setTimeout(func,wait);
+		}
+
+	}
+	oDiv.onmousemove = debounce(move,1000)
+</script>
+</body>
+</html>
